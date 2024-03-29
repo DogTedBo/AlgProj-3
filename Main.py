@@ -20,10 +20,6 @@ def task3():
     print("\nTask 3: Applying Dijkstra's Algorithm and Minimum Spanning Tree Algorithm")
     visualize_graph()
     
-    
-   
-   
-    
 
 def main():
     while True:
@@ -41,6 +37,8 @@ def main():
             task2()
         elif choice == '3':
             task3()
+            
+            
         elif choice == '4':
             print("Exiting...")
             break
