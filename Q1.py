@@ -1,4 +1,4 @@
-#1 (1)BFS Can not find all connected components
+#1 (1)BFS and DFS can find all connected components but not disconnected components
 def bfs(graph, start): 
     visited, queue = set(), [start] 
     p = []
@@ -15,7 +15,7 @@ G = {'A': ['E', 'F', 'B'], 'B': ['A', 'F', 'C'], 'C': ['B', 'G', 'D'], 'D': ['C'
   'K': ['H', 'L', 'O'], 'L': ['H', 'K', 'P'], 'M': ['I', 'N'], 'N': ['M'], 'O': ['K'], 'P': ['L']}
 
 print(bfs(G,'L'))
-#1 (1)DFS Can not find all connected components
+#1 (1)DFS 
 
 t=0
 def dfs(graph, start, visited=None): 
@@ -51,7 +51,7 @@ G = {'A': ['E', 'F', 'B'], 'B': ['A', 'F', 'C'], 'C': ['B', 'G', 'D'], 'D': ['C'
   'F': ['E', 'A', 'B'], 'G': ['D', 'C', 'J'], 'H': ['K', 'L'], 'I': ['E', 'F', 'J', 'M'], 'J': ['I', 'G'],
   'K': ['H', 'L', 'O'], 'L': ['H', 'K', 'P'], 'M': ['I', 'N'], 'N': ['M'], 'O': ['K'], 'P': ['L']}
 
-paths_generator = dfs_paths(G, 'A', 'J')
+paths_generator = dfs_paths(G, 'A', 'G')
 
 found_paths = list(paths_generator)
 if found_paths:
@@ -66,21 +66,19 @@ else:
     from collections import deque
 
 def bfs_find_path(graph, start, goal):
-    queue = deque([(start, [start])])  # Initialize queue with start node and its path
-    visited = set([start])  # Keep track of visited nodes
+    queue = deque([(start, [start])]) 
+    visited = set([start]) 
     
     while queue:
         node, path = queue.popleft()
         if node == goal:
-            return path  # Return the path if goal node is found
+            return path
         
         for neighbor in graph[node]:
             if neighbor not in visited:
                 visited.add(neighbor)
-                queue.append((neighbor, path + [neighbor]))  # Enqueue neighbor node with updated path
-    
-    return None  # Return None if no path is found
-
+                queue.append((neighbor, path + [neighbor])) 
+    return None 
 
 start_node = 'A'
 goal_node = 'G'
@@ -91,3 +89,5 @@ if path:
 else:
     print(f"No path found between {start_node} and {goal_node}")
 
+#1 (c) not always grt exactly the same path
+    
