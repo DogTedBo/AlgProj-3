@@ -1,4 +1,5 @@
 import networkx as nx
+import matplotlib.pyplot as plt
 
 
 # Define the array of edges for the graph
@@ -19,3 +20,63 @@ edges1 = [
     (1, 2), (1, 3), (2, 4), (3, 4), (4, 3), (4, 5), (5, 6), (5, 11),
     (6, 7), (7, 8), (8, 9), (9, 6), (9, 10), (11, 12), (12, 10), (10, 5)
 ]
+
+
+def draw_weighted_graph(edges):
+    import matplotlib.pyplot as plt
+
+    # Create a graph object
+    G_weighted = nx.Graph()
+
+    # Add edges with weights to the graph
+    for edge in edges:
+        G_weighted.add_edge(edge[0], edge[1], weight=edge[2])
+
+    # Draw the graph
+    pos = nx.spring_layout(G_weighted)
+    nx.draw(G_weighted, pos, with_labels=True, node_size=1500, node_color="skyblue", font_size=10, font_weight="bold")
+    labels = nx.get_edge_attributes(G_weighted, 'weight')
+    nx.draw_networkx_edge_labels(G_weighted, pos, edge_labels=labels)
+    plt.title("Weighted Graph")
+    plt.show()
+
+# Call the function with the given edges
+draw_weighted_graph(edges)
+
+
+
+def draw_simple_graph(G):
+    import matplotlib.pyplot as plt
+
+    # Create a graph object
+    G_simple = nx.Graph(G)
+
+    # Draw the graph
+    plt.figure(figsize=(10, 8))
+    pos_simple = nx.spring_layout(G_simple)
+    nx.draw(G_simple, pos_simple, with_labels=True, node_size=1500, node_color="lightgreen", font_size=10, font_weight="bold")
+    plt.title("Simple Graph (without edge weights)")
+    plt.show()
+
+# Call the function with the given graph G
+draw_simple_graph(G)
+
+# Create a graph object
+def draw_graph_with_edges(edges):
+    import matplotlib.pyplot as plt
+
+    # Create a graph object
+    G_edges = nx.Graph()
+
+    # Add edges to the graph
+    G_edges.add_edges_from(edges)
+
+    # Draw the graph
+    plt.figure(figsize=(10, 8))
+    pos_edges = nx.spring_layout(G_edges)
+    nx.draw(G_edges, pos_edges, with_labels=True, node_size=1500, node_color="salmon", font_size=10, font_weight="bold")
+    plt.title("Graph with edges only")
+    plt.show()
+
+# Call the function with the given edges
+draw_graph_with_edges(edges1)
