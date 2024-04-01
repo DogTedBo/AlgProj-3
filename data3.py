@@ -23,7 +23,6 @@ edges1 = [
 
 
 def draw_weighted_graph(edges):
-    import matplotlib.pyplot as plt
 
     # Create a graph object
     G_weighted = nx.Graph()
@@ -40,13 +39,12 @@ def draw_weighted_graph(edges):
     plt.title("Weighted Graph")
     plt.show()
 
-# Call the function with the given edges
-draw_weighted_graph(edges)
+
 
 
 
 def draw_simple_graph(G):
-    import matplotlib.pyplot as plt
+   
 
     # Create a graph object
     G_simple = nx.Graph(G)
@@ -58,12 +56,10 @@ def draw_simple_graph(G):
     plt.title("Simple Graph (without edge weights)")
     plt.show()
 
-# Call the function with the given graph G
-draw_simple_graph(G)
+
 
 # Create a graph object
 def draw_graph_with_edges(edges):
-    import matplotlib.pyplot as plt
 
     # Create a graph object
     G_edges = nx.Graph()
@@ -78,5 +74,3 @@ def draw_graph_with_edges(edges):
     plt.title("Graph with edges only")
     plt.show()
 
-# Call the function with the given edges
-draw_graph_with_edges(edges1)
