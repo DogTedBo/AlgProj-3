@@ -49,4 +49,3 @@ def visualize_graph():
     plt.title("Graph with Shortest Paths (Red, Dashed) and Minimum Spanning Tree (Green)")
     plt.axis('off')  # Disable axis
     plt.show()
-

@@ -1,5 +1,6 @@
 #1 (1)BFS and DFS can find all connected components but not disconnected components
 from collections import deque
+from data3 import G
 def bfs(graph, start): 
     visited, queue = set(), [start] 
     p = []
@@ -11,9 +12,7 @@ def bfs(graph, start):
             queue.extend(v for v in graph[vertex] if v not in visited) 
     return p
 
-G = {'A': ['E', 'F', 'B'], 'B': ['A', 'F', 'C'], 'C': ['B', 'G', 'D'], 'D': ['C', 'G'], 'E': ['A', 'F', 'I'],
-  'F': ['E', 'A', 'B'], 'G': ['D', 'C', 'J'], 'H': ['K', 'L'], 'I': ['E', 'F', 'J', 'M'], 'J': ['I', 'G'],
-  'K': ['H', 'L', 'O'], 'L': ['H', 'K', 'P'], 'M': ['I', 'N'], 'N': ['M'], 'O': ['K'], 'P': ['L']}
+
 
 print(bfs(G,'L'))
 #1 (1)DFS 
@@ -30,9 +29,6 @@ def dfs(graph, start, visited=None):
        dfs(graph, key, visited)
     return visited 
 
-G = {'A': ['E', 'F', 'B'], 'B': ['A', 'F', 'C'], 'C': ['B', 'G', 'D'], 'D': ['C', 'G'], 'E': ['A', 'F', 'I'],
-  'F': ['E', 'A', 'B'], 'G': ['D', 'C', 'J'], 'H': ['K', 'L'], 'I': ['E', 'F', 'J', 'M'], 'J': ['I', 'G'],
-  'K': ['H', 'L', 'O'], 'L': ['H', 'K', 'P'], 'M': ['I', 'N'], 'N': ['M'], 'O': ['K'], 'P': ['L']}
 
 print(dfs(G,'A'))
 
@@ -48,9 +44,6 @@ def dfs_paths(graph, start, goal):
                stack.append((next, path + [next]))
   
 
-G = {'A': ['E', 'F', 'B'], 'B': ['A', 'F', 'C'], 'C': ['B', 'G', 'D'], 'D': ['C', 'G'], 'E': ['A', 'F', 'I'],
-  'F': ['E', 'A', 'B'], 'G': ['D', 'C', 'J'], 'H': ['K', 'L'], 'I': ['E', 'F', 'J', 'M'], 'J': ['I', 'G'],
-  'K': ['H', 'L', 'O'], 'L': ['H', 'K', 'P'], 'M': ['I', 'N'], 'N': ['M'], 'O': ['K'], 'P': ['L']}
 
 paths_generator = dfs_paths(G, 'A', 'G')
 
