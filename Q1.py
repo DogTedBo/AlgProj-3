@@ -1,4 +1,5 @@
 #1 (1)BFS and DFS can find all connected components but not disconnected components
+from collections import deque
 def bfs(graph, start): 
     visited, queue = set(), [start] 
     p = []
@@ -63,7 +64,7 @@ else:
 
     #1 (2) BFS
 
-    from collections import deque
+    
 
 def bfs_find_path(graph, start, goal):
     queue = deque([(start, [start])]) 
