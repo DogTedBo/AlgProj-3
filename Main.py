@@ -2,6 +2,7 @@ from data3 import edges
 from dijkstra import dijkstra
 from prim import prim
 from Q3 import visualize_graph
+from Q2 import find_strongly_connected_components
 import networkx as nx
 from matplotlib import pyplot as plt
 
@@ -13,7 +14,7 @@ def task1():
 def task2():
     # Task 2: Decomposing a Connected Digraph into Strongly Connected Components
     print("\nTask 2: Decomposing a Connected Digraph into Strongly Connected Components")
-    # Implement Task 2 here...
+    find_strongly_connected_components()
 
 def task3():
     # Task 3: Applying Dijkstra's Algorithm and Minimum Spanning Tree Algorithm
