@@ -1,6 +1,7 @@
 from data3 import edges, edges1, G
 from dijkstra import dijkstra
 from prim import prim
+from Q1 import q1   
 from Q3 import visualize_graph
 from Q2 import find_strongly_connected_components, graph2
 import networkx as nx
@@ -10,6 +11,8 @@ def task1():
     # Task 1: Representing an Undirected Graph and Answering Questions Computationally
     print("\nTask 1: Representing an Undirected Graph and Answering Questions")
     # Implement Task 1 here...
+    q1()
+    
 
 def task2():
     # Task 2: Decomposing a Connected Digraph into Strongly Connected Components

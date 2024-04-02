@@ -59,13 +59,13 @@ def draw_simple_graph(G):
 
 
 # Create a graph object
-def draw_graph_with_edges(edges):
+def draw_graph_with_edges(edges1):
 
     # Create a graph object
     G_edges = nx.Graph()
 
     # Add edges to the graph
-    G_edges.add_edges_from(edges)
+    G_edges.add_edges_from(edges1)
 
     # Draw the graph
     plt.figure(figsize=(10, 8))
