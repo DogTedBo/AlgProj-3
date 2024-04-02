@@ -28,24 +28,20 @@ def visualize_graph():
         for neighbor, weight in neighbors:
             print(f"{node} - {neighbor}: {weight}")
 
-    # Visualize the graph, shortest paths, and minimum spanning tree
-    plt.figure(figsize=(10, 6))
-    pos = nx.spring_layout(graph, seed=42)  # Adjust the layout for better visualization
 
-    # Draw the graph nodes and labels
+    # Visualization
+    pos = nx.spring_layout(graph, scale=3, seed=42)  # Position nodes using Fruchterman-Reingold force-directed algorithm with larger scale
+    labels = nx.get_edge_attributes(graph, 'weight')  # Get edge weights as labels
+
+    # Draw graph
     nx.draw_networkx_nodes(graph, pos, node_color='skyblue', node_size=700)
-    nx.draw_networkx_labels(graph, pos, font_size=12, font_color='black', font_weight='bold')
+    nx.draw_networkx_edges(graph, pos, edge_color='gray', width=1.5)
+    nx.draw_networkx_labels(graph, pos, font_size=12, font_weight='bold')
+    nx.draw_networkx_edge_labels(graph, pos, edge_labels=labels, font_size=10)
 
-    # Draw the graph edges with different styles for shortest paths and minimum spanning tree
-    nx.draw_networkx_edges(graph, pos, edgelist=graph.edges(), width=1, alpha=0.5, edge_color='gray')
-    nx.draw_networkx_edges(graph, pos, edgelist=shortest_path_edges, width=2, alpha=0.8, edge_color='red', style='dashed')
-    min_spanning_tree_edges = [(node, neighbor) for node, neighbors in min_spanning_tree.items() for neighbor, _ in neighbors]
-    nx.draw_networkx_edges(graph, pos, edgelist=min_spanning_tree_edges, width=2, alpha=0.8, edge_color='green')
+    # Highlight shortest path edges with reduced transparency
+    nx.draw_networkx_edges(graph, pos, edgelist=shortest_path_edges, edge_color='green', alpha=0.5, width=2.0)
 
-    # Add edge labels
-    edge_labels = nx.get_edge_attributes(graph, 'weight')
-    nx.draw_networkx_edge_labels(graph, pos, edge_labels=edge_labels)
-
-    plt.title("Graph with Shortest Paths (Red, Dashed) and Minimum Spanning Tree (Green)")
-    plt.axis('off')  # Disable axis
+    plt.title('Graph Visualization')
+    plt.axis('off')  # Turn off axis
     plt.show()
