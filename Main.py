@@ -1,6 +1,4 @@
 from data3 import edges, edges1, G
-from dijkstra import dijkstra
-from prim import prim
 from Q1 import q1   
 from Q3 import visualize_graph
 from Q2 import find_strongly_connected_components, graph2
