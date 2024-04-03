@@ -1,6 +1,7 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 
+# The data for the diffrent graphs are stored in this file to be used by diffrent files
 
 # Define the array of edges for the graph
 edges = [
@@ -12,6 +13,7 @@ edges = [
     ("G", "E", 23), ("G", "H", 25), ("G", "I", 21)
 ]
 
+#
 G = {'A': ['E', 'F', 'B'], 'B': ['A', 'F', 'C'], 'C': ['B', 'G', 'D'], 'D': ['C', 'G'], 'E': ['A', 'F', 'I'],
   'F': ['E', 'A', 'B'], 'G': ['D', 'C', 'J'], 'H': ['K', 'L'], 'I': ['E', 'F', 'J', 'M'], 'J': ['I', 'G'],
   'K': ['H', 'L', 'O'], 'L': ['H', 'K', 'P'], 'M': ['I', 'N'], 'N': ['M'], 'O': ['K'], 'P': ['L']}
@@ -20,6 +22,9 @@ edges1 = [(4, 12), (4, 1), (4, 2), (1, 3), (3, 2), (3, 5), (5, 6), (6, 8), (8, 9
          (11, 12), (6, 7), (7, 10), (10, 11), (2, 1), (10, 9), (10, 9), (9, 5)]
 
 
+
+
+#these functions are used to draw the graphs for testing purposes
 
 def draw_weighted_graph(edges):
 

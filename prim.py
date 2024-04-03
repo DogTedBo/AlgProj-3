@@ -1,5 +1,6 @@
 import heapq
 
+# prim function
 def prim(graph, start):
     min_spanning_tree = {}
     visited = set()

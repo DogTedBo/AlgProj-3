@@ -6,14 +6,13 @@ import networkx as nx
 from matplotlib import pyplot as plt
 
 def task1():
-    # Task 1: Representing an Undirected Graph and Answering Questions Computationally
+    # Task 1
     print("\nTask 1: Representing an Undirected Graph and Answering Questions")
-    # Implement Task 1 here...
     q1()
     
 
 def task2():
-    # Task 2: Decomposing a Connected Digraph into Strongly Connected Components
+    # Task 2
     print("\nTask 2: Decomposing a Connected Digraph into Strongly Connected Components")
     scc = find_strongly_connected_components(edges1)
     print(scc)
@@ -22,7 +21,7 @@ def task2():
     
     
 def task3():
-    # Task 3: Applying Dijkstra's Algorithm and Minimum Spanning Tree Algorithm
+    # Task 3
     print("\nTask 3: Applying Dijkstra's Algorithm and Minimum Spanning Tree Algorithm")
     visualize_graph()
     
