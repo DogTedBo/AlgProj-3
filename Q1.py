@@ -1,6 +1,8 @@
 #1 (1)BFS and DFS can find all connected components but not disconnected components
 from collections import deque
 from data3 import G
+import networkx as nx
+import matplotlib.pyplot as plt
 
 
 def q1():
@@ -22,19 +24,18 @@ def q1():
     #1 (1)DFS 
 
    
+    # DFS
     def dfs(graph, start, visited=None): 
-       
         global t
-        t=0
+        t = 0
         t += 1
-        print('DSF called ', t, 'times.')
+        print('DFS called ', t, 'times.')
         if visited is None: 
-            visited = set()
-        visited.add(start)
+            visited = []
+        visited.append(start)
         for key in set(graph[start]).difference(visited):  
             dfs(graph, key, visited)
         return visited 
-
 
     print(dfs(G,'A'))
 
@@ -89,4 +90,20 @@ def q1():
     else:
         print(f"No path found between {start_node} and {goal_node}")
 
-#1 (c) not always grt exactly the same path
+    
+    
+    
+    # Create a NetworkX graph
+    G_nx = nx.Graph(G)
+
+    # Plotting the graph
+    plt.figure(figsize=(10, 8))
+
+    # Draw the graph
+    pos = nx.spring_layout(G_nx, seed=42)
+    nx.draw(G_nx, pos, with_labels=True, node_color='lightblue', node_size=1500, font_size=12, font_weight='bold', edge_color='gray')
+
+    plt.title('Graph without BFS and DFS Paths')
+    plt.show()
+
+
